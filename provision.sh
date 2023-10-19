@@ -2,6 +2,7 @@
 
 VM_BASE_FOLDER=`VBoxManage list systemproperties | sed -n -e 's/Default machine folder: *\(\/.*\)$/\1/p'`
 WS_ISO_PATH=/run/media/oskar/2e1063cc-b9dc-4ac0-ad88-26721ac14aa7/isos/en-us_windows_server_2022_x64_dvd_620d7eac.iso
+SQL_ISO_PATH=/run/media/oskar/2e1063cc-b9dc-4ac0-ad88-26721ac14aa7/isos/en_sql_server_2019_standard_x64_dvd_814b57aa.iso
 
 function ask_yn() {
     while true; do
@@ -20,6 +21,7 @@ function ask_yn() {
 # $3 - CPU CORES
 # $4 - DISK SIZE
 # $5 - IMAGE INDEX
+# $6 - ISO PATH
 function provision_vm() {
 
 	if [[ -f "$VM_BASE_FOLDER/$1/$1.vbox" ]]; then
@@ -60,7 +62,7 @@ function provision_vm() {
 	# --image-index=1 -> Standard Core edition
 	# --image-index=2 -> Standard with Desktop
 	VBoxManage unattended install $1 \
-		--iso=$WS_ISO_PATH \
+		--iso=$6 \
 		--user="oskar" \
 		--password="123456" \
 		--locale="en_US" \
@@ -80,11 +82,11 @@ function provision_vm() {
 # $4 - DISK SIZE in MiB 131072 or 65536
 # $5 - IMAGE INDEX
 
-VBoxManage list vms | grep "domcon" || provision_vm "domcon" 2048 1 131072 2
+VBoxManage list vms | grep "domcon" || provision_vm "domcon" 2048 1 131072 2 $WS_ISO_PATH
 
-VBoxManage list vms | grep "sharepoint" || provision_vm "sharepoint" 1024 1 65536 1
+VBoxManage list vms | grep "sharepoint" || provision_vm "sharepoint" 1024 1 65536 1 $WS_ISO_PATH
 
-VBoxManage list vms | grep "sqlserver" || provision_vm "sqlserver" 1024 1 65536 1
+VBoxManage list vms | grep "sqlserver" || provision_vm "sqlserver" 1024 1 65536 1 $SQL_ISO_PATH
 
 
 VBoxManage startvm "domcon" --type headless
