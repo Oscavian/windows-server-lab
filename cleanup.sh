@@ -7,4 +7,4 @@ function remove_vm() {
 	fi
 }
 
-[[ ! -n $1 ]] && remove_vm $1
+remove_vm $1
