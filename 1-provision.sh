@@ -14,6 +14,7 @@ function ask_yn() {
     done
 }
 
+
 # provision a virtualbox vm
 # args:
 # $1 - VM-name
@@ -29,6 +30,7 @@ function provision_vm() {
 		return 1
 	fi	
 
+	echo "Creating vm $1"
 	VBoxManage createvm \
 	--name=$1 \
 	--basefolder=$VM_BASE_FOLDER \
@@ -36,7 +38,7 @@ function provision_vm() {
 	--register \
 	--default
 
-	echo "Modify vm..."
+	echo "Configuring vm $1"
 
 	VBoxManage modifyvm $1 \
 		--cpus $3 \
@@ -45,7 +47,7 @@ function provision_vm() {
 		--nat-network1 NatNetwork1 \
 		--groups "/winserv2"
 
-	echo "Create new disk..."
+	echo "Create and attach new disk for vm $1"
 
 	VBoxManage createmedium disk \
 		--filename "/$VM_BASE_FOLDER/$1/$1.vdi" \
@@ -57,7 +59,14 @@ function provision_vm() {
 		--type hdd \
 		--medium "/$VM_BASE_FOLDER/$1/$1.vdi"
 
-	echo "Begin install..."
+	VBoxManage sharedfolder add $1 \
+		--name "share-$1" \
+		--hostpath "/home/oskar/hogent/ws2/$1" \
+		--readonly \
+		--automount
+
+
+	echo "Begin unattended installation of vm $1"
 
 	# --image-index=1 -> Standard Core edition
 	# --image-index=2 -> Standard with Desktop
@@ -92,7 +101,6 @@ VBoxManage list vms | grep "sqlserver" || provision_vm "sqlserver" 1024 1 65536 
 VBoxManage startvm "domcon" --type headless
 VBoxManage startvm "sharepoint" --type headless
 VBoxManage startvm "sqlserver" --type headless
-# [ "$?" -ne 0 ] && exit "$?"
 
 # https://blogs.oracle.com/scoter/post/unattened-install-microsoft-windows-11-on-virtualbox
 # https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-unattended.html

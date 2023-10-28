@@ -5,6 +5,9 @@ WS_ISO_PATH=/run/media/oskar/2e1063cc-b9dc-4ac0-ad88-26721ac14aa7/isos/en-us_win
 SQL_ISO_PATH=/run/media/oskar/2e1063cc-b9dc-4ac0-ad88-26721ac14aa7/isos/en_sql_server_2019_standard_x64_dvd_814b57aa.iso
 SP_IMAGE_PATH=/run/media/oskar/2e1063cc-b9dc-4ac0-ad88-26721ac14aa7/isos/officeserver.img
 
+# installed by package `virtualbox-guest-iso` on Arch
+VBOX_GUEST_ISO_PATH=/usr/lib/virtualbox/additions/VBoxGuestAdditions.iso
+
 function mount_install_med {    
     VBoxManage storageattach "$1" \
             --storagectl SATA \
