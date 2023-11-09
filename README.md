@@ -6,22 +6,22 @@ A demo setup for a Windows Server environment. Automated using bash, `VBoxManage
 
 ## Domain controller
 
-- [ ] Network config
+- [x] Network config
 - [ ] SSH Server
-- [ ] Active Directory
+- [x] Active Directory
 - [ ] Primary DNS 
 - [ ] DHCP
 - [ ] Root CA
 
 ## Sharepoint server
 
-- [ ] Network config
+- [x] Network config
 - [ ] SSH Server
 - [ ] Sharepoint
 
 ## SQL Server
 
-- [ ] Network config
+- [x] Network config
 - [ ] SSH Server
 - [ ] Secondary DNS
 

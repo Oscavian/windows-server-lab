@@ -1,7 +1,7 @@
 # Install the OpenSSH Server feature
-Get-WindowsCapability -Online | Where-Object Name -like ‘OpenSSH.Server*’ | Add-WindowsCapability –Online
+Get-WindowsCapability -Online | Where-Object Name -like `OpenSSH.Server*` | Add-WindowsCapability -Online
 
-Get-WindowsCapability -Online | ? Name -like 'OpenSSH.Ser*'
+Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.Ser*'
 
 # Set the SSH server to start automatically
 Set-Service -Name sshd -StartupType 'Automatic'
