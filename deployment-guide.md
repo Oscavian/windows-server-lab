@@ -74,10 +74,22 @@ To be executed on your host system:
 1. Execute `Set-ExecutionPolicy Unrestricted` to allow execution of PS scripts.
 2. goto `H:\sqlserver`
 3. run `0-network.ps1` to configure networking
-
+4. Make sure, that `H:` is the shared folder and `D:` is the sqlserver installation media, check with `Get-PSDrive`
+5. run `1-installation.ps1` to install the sql server software
+6. run `2-configuration.ps1` to install sqlcmd, firewall rules
+7. open the SQL Server PowerShell with `sqlps.exe`
+   - run `H:\sqlserver\sqlps.ps1` to enable TCP/IP
+   - `exit` to the regular powershell
+8. check with `netstat -a`, if port 1433 is exposed
 
 ## Configure the Sharepoint Server
 
 1. Execute `Set-ExecutionPolicy Unrestricted` to allow execution of PS scripts.
 2. goto `H:\sharepoint`
 3. run `0-network.ps1` to configure networking
+
+# Configure an SSH Server
+
+1. Execute `scripts/ssh.ps1`
+2. Enable Port forwarding in VirtualBox: `VBoxManage modifyvm "VM name" --natpf1 "guestssh,tcp,127.0.0.1,2222,192.168.23.XX,22"`
+3. connect via ssh on the host: `ssh user@127.0.0.1 -p 2222`
