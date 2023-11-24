@@ -1,5 +1,6 @@
 # Define variables for your domain configuration
-$DomainName = "WS2-2324-oskar.hogent"
+$DomainName = "ws2-2324-oskar.hogent"
+$DomainNetbiosName = "WS2-2324-OSKAR"
 $SafeModeAdministratorPassword = ConvertTo-SecureString -AsPlainText "Password123!" -Force
 $ForestMode = "Default"
 $DomainMode = "Default"
@@ -7,13 +8,15 @@ $DomainMode = "Default"
 # Install the Active Directory Domain Services role
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 
-# Promote the server to a domain controller
+# Install AD Forest
 Install-ADDSForest `
   -DomainName $DomainName `
+  -DomainNetbiosName $DomainNetbiosName `
   -SafeModeAdministratorPassword $SafeModeAdministratorPassword `
   -DomainMode $DomainMode `
   -ForestMode $ForestMode `
-  -InstallDns `
-  -Force
+  -InstallDns:$true `
+  -Force:$true
+  -NoRebootOnCompletion:$false
 
-# Restart the server to complete the promotion
+# Server automatically restarts

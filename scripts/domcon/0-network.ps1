@@ -1,5 +1,5 @@
 # Set Hostname
-# Rename-Computer -NewName "srv001" -Force
+Rename-Computer -NewName "srv001" -Force
 
 $ipaddress='192.168.23.10'
 $catchall = '0.0.0.0/0'
