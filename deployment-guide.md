@@ -87,6 +87,13 @@ To be executed on your host system:
 1. Execute `Set-ExecutionPolicy Unrestricted` to allow execution of PS scripts.
 2. goto `H:\sharepoint`
 3. run `0-network.ps1` to configure networking
+4. run `1-sharepoint-prereq.ps1` and click through the installer. The script will ask you to restart the pc, type 'y'
+5. run `2-sharepoint-setup.ps1`
+   - enter your product key
+   - accept the license
+   - hit Install now
+   - uncheck the checkmark to run the config wizard
+   - hit yes to reboot
 
 # Configure an SSH Server
 
