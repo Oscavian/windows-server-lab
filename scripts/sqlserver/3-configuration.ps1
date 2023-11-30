@@ -40,8 +40,8 @@ New-NetFirewallRule -DisplayName "SQLServer default instance" -Direction Inbound
 New-NetFirewallRule -DisplayName "SQLServer Browser service" -Direction Inbound -LocalPort 1434 -Protocol UDP -Action Allow
 
 # Not tested yet
-# Write-Host "Enabling TCP/IP on the sqlserver instance"
-# SQLPS.exe -Command $(Get-Content 'H:\sqlserver\sqlps.ps1')
+Write-Host "Enabling TCP/IP on the sqlserver instance"
+SQLPS.exe -Command $(Get-Content 'H:\sqlserver\sqlps.ps1')
 
 
 

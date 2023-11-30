@@ -94,6 +94,20 @@ To be executed on your host system:
    - hit Install now
    - uncheck the checkmark to run the config wizard
    - hit yes to reboot
+6. configure sharepoint
+   - run the sharepoint product config wizard
+   - enter the db server name and credentials
+    ![](img/sp_db_settings.png)
+   - enter a passphrase, e.g. 'Password123!'
+   - Select 'Single-Server Farm' as Server Role
+   - specify a port number for the administration application, e.g. 8080
+   - leave NTLM as auth
+   ![](img/sp_config_overview.png)
+   - browse to "http://srv002:8080" to verfiy the installation succeeded
+
+## OneDrive
+
+https://learn.microsoft.com/en-us/sharepoint/sites/set-up-onedrive-for-business
 
 # Configure an SSH Server
 
