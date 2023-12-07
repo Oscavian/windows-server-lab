@@ -66,8 +66,9 @@ To be executed on your host system:
 3. run `0-network.ps1` to configure networking
 4. run `1-active-directory` to install the AD Services
 5. the machine will reboot, let it finish its thing
-
-> No further configuration yet
+6. run `1.1-dns.ps1` to configure the reverse dns zones
+7. run `2-dhcp.ps1` to configure dhcp
+8. run `3-ca.ps1` to set up the root ca
 
 ## Configure the SQL Server
 
@@ -81,7 +82,12 @@ To be executed on your host system:
    - run `H:\sqlserver\sqlps.ps1` to enable TCP/IP
    - `exit` to the regular powershell
 8. check with `netstat -a`, if port 1433 is exposed
-9. run `4-dns-secondary.ps1`
+
+### Secondary DNS
+
+1. run `4-dns-secondary.ps1`
+2. go to DNS -> Zone -> Properties -> Zone Transfer
+3. allow zone transfers only for dns servers
 
 ## Configure the Sharepoint Server
 
@@ -108,10 +114,23 @@ To be executed on your host system:
 
 ## OneDrive
 
+Follow this tutorial exactly as it says:
 https://learn.microsoft.com/en-us/sharepoint/sites/set-up-onedrive-for-business
+
+![](img/sp_user_view.png)
 
 # Configure an SSH Server
 
 1. Execute `scripts/ssh.ps1`
 2. Enable Port forwarding in VirtualBox: `VBoxManage modifyvm "VM name" --natpf1 "guestssh,tcp,127.0.0.1,2222,192.168.23.XX,22"`
 3. connect via ssh on the host: `ssh user@127.0.0.1 -p 2222`
+
+Use this ssh config for convenience to use a remote PowerShell:
+```
+Host myhost
+        HostName localhost
+        Port 2210
+        User "WS2-2324-oskar\oskar"
+        RequestTTY force
+        RemoteCommand powershell
+```

@@ -1,0 +1,1 @@
+Start-Process -FilePath 'D:\setup.exe' -ArgumentList '/Q', '/Action=Uninstall', '/INSTANCENAME=MSSQLSERVER', '/FEATURES=SQLENGINE,FullText,IS,Conn' -Wait -NoNewWindow

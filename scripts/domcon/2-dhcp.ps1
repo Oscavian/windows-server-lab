@@ -10,8 +10,8 @@ Add-DhcpServerInDC `
     -IPAddress 192.168.23.10
 
 Add-DhcpServerv4Scope -Name "WS2 Network" `
-    -StartRange 192.168.23.100 `
-    -EndRange 192.168.23.200 `
+    -StartRange 192.168.23.51 `
+    -EndRange 192.168.23.100 `
     -SubnetMask 255.255.255.0 `
 
 Set-DhcpServerv4OptionValue `
