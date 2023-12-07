@@ -81,6 +81,7 @@ To be executed on your host system:
    - run `H:\sqlserver\sqlps.ps1` to enable TCP/IP
    - `exit` to the regular powershell
 8. check with `netstat -a`, if port 1433 is exposed
+9. run `4-dns-secondary.ps1`
 
 ## Configure the Sharepoint Server
 
