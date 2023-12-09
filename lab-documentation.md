@@ -69,6 +69,12 @@ I ran into problems, when configuring the SharePoint web Application with an SSL
 
 ![](img/sp_cert_error.png)
 
+### OneDrive
+
+OneDrive works on SharePoint and syncs files successfully, but I couldn't make the local client work. Apparenly microsoft requires you to change a registry entry to re-enable that feature. As I didn't want to waste time on that, I left it out. But I assume the answer lies somewhere in this article:
+
+https://learn.microsoft.com/en-us/sharepoint/use-group-policy
+
 ## Secondary DNS
 
 I also didn't make the secondary DNS server fully work. There must be an issue with the zone transfer settings or the allowed dns resolvers in the domain. I tried fixing the problem via the DNS GUI on the DC first, but it did not resolve the issue.
@@ -107,9 +113,10 @@ I also didn't make the secondary DNS server fully work. There must be an issue w
 
 What does not work?
 - SSL on Sharepoint
+- local OneDrive client 
 - Secondary DNS
 
-everything else works!
+everything else should work fine!
 
 # Conclusion
 
