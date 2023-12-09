@@ -6,6 +6,6 @@ if((Test-Path $media_path) -eq $false) {
 }
 
 $install_path = "$env:SystemDrive\SSMSto"
-$params = "/Install SSMSInstallRoot=`"$install_path`"" # /Quiet
+$params = "/Install SSMSInstallRoot=`"$install_path`"", "/Quiet" 
 
 Start-Process -FilePath $media_path -ArgumentList $params -Wait

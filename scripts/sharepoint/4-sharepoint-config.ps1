@@ -1,4 +1,4 @@
-# TODO
+# NOT WORKING!
 # https://learn.microsoft.com/en-us/previous-versions/office/sharepoint-server-2010/cc263093(v=office.14)?redirectedfrom=MSDN
 # https://blog.stefan-gossner.com/2015/08/20/why-i-prefer-psconfigui-exe-over-psconfig-exe/
 # https://learn.microsoft.com/en-us/sharepoint/install/install-sharepoint-server-2016-on-one-server#run-setup

@@ -71,9 +71,9 @@ function New-VboxVM {
 
 # Provision VirtualBox VMs
 if (-not (VBoxManage list vms | Select-String "domcon")) { New-VboxVM "domcon" 2048 1 65536 2 $WS_ISO_PATH "Windows2022_64" }
-if (-not (VBoxManage list vms | Select-String "sharepoint")) { New-VboxVM "sharepoint" 1024 1 65536 2 $WS_ISO_PATH "Windows2022_64" }
-if (-not (VBoxManage list vms | Select-String "sqlserver")) { New-VboxVM "sqlserver" 1024 1 65536 1 $WS_ISO_PATH "Windows2022_64" }
-if (-not (VBoxManage list vms | Select-String "ws2client")) { New-VboxVM "ws2client" 1024 1 65536 1 $W10_ISO_PATH "Windows10_64" }
+if (-not (VBoxManage list vms | Select-String "sharepoint")) { New-VboxVM "sharepoint" 4096 2 65536 2 $WS_ISO_PATH "Windows2022_64" }
+if (-not (VBoxManage list vms | Select-String "sqlserver")) { New-VboxVM "sqlserver" 2048 1 65536 1 $WS_ISO_PATH "Windows2022_64" }
+if (-not (VBoxManage list vms | Select-String "ws2client")) { New-VboxVM "ws2client" 2048 1 65536 1 $W10_ISO_PATH "Windows10_64" }
 
 # Start unattended installation
 & VBoxManage startvm "domcon" --type headless

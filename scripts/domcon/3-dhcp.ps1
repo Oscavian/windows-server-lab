@@ -18,7 +18,7 @@ Set-DhcpServerv4OptionValue `
     -DnsDomain 'ws2-2324-oskar.hogent' `
     -DnsServer 192.168.23.10
 
-# Set DHCP default gateway, fckn magic number 3 !!!!
+# Set DHCP default gateway, a magic number 3 !!!!
 # https://learn.microsoft.com/en-us/powershell/module/dhcpserver/set-dhcpserverv4optionvalue?view=windowsserver2022-ps
 Set-DhcpServerv4OptionValue `
     -OptionID 3 `
