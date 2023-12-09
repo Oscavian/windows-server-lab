@@ -1,3 +1,5 @@
+# Lab Documentation 
+
 > Author: Oskar Münstermann
 > 
 > Class: Windows Server II
@@ -67,7 +69,7 @@ Additionally, I increased the RAM to 4GiB, because the first installation failed
 
 I ran into problems, when configuring the SharePoint web Application with an SSL Certificate. Creating the certificate worked fine, but serving the app on port 443 with https enabled kept throwing an error that I didn't solve yet.
 
-![](img/sp_cert_error.png)
+![SharePoint Certificat Error](img/sp_cert_error.png)
 
 ### OneDrive
 

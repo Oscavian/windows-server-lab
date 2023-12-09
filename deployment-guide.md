@@ -13,16 +13,6 @@ The directory structure follows a pattern, which depicts in which order the scri
 The provisioning scripts were initally developed on Linux, thats why there is also a bash version of the provisioning scripts available.
 The provisioning scripts were only tested on a Linux notebook, but should also work under Windows.
 
-```
-└── scripts
-    ├── client
-    ├── domcon
-    ├── provision
-    │   └── bash
-    ├── sharepoint
-    └── sqlserver
-```
-
 ## Set ISO Paths
 
 - go to `scripts/provision/1-provision.ps1` and fill in the following variables at the top according to your system
@@ -49,14 +39,14 @@ To be executed on your **host system**:
 
 ## User overview
 
-- **oskar**
+- `oskar`
   - Password: `123456`
   - local user created on all machines through the installation process
-- **WS2-2324-oskar\oskar**
+- `WS2-2324-oskar\oskar`
   - Password: `123456`
   - Permissions: Domain Admin, Enterprise Admin, SQL Server Admin
   - do all configuration with this user
-- **WS2-2324-oskar\john**
+- `WS2-2324-oskar\john`
   - Password: `Password123!` (to conform with the password policy ;))
   - regular domain user without special permissions
 
@@ -135,12 +125,16 @@ To be executed on the machine **srv002** (desktop powershell as (Domain-) Admini
 7. configure sharepoint
    - run the **sharepoint product config wizard**
    - enter the db server name and credentials
-    ![](img/sp_db_settings.png)
+
+![](img/sp_db_settings.png)
+
    - enter a passphrase, e.g. 'Password123!'
    - Select 'Single-Server Farm' as Server Role
    - specify a port number for the administration application, e.g. 8080
    - leave NTLM as auth
-   ![](img/sp_config_overview.png)
+
+![](img/sp_config_overview.png)
+
    - browse to "http://srv002:8080" to verify the installation succeeded
 
 ## OneDrive
