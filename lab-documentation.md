@@ -20,7 +20,7 @@
 | srv003   | 192.168.23.30 | 192.168.23.10 | 192.168.23.2 |
 | ws001    | DHCP          | 192.168.23.10 | 192.168.23.2 |
 
-![Network](./network.png)
+![Network](img/ws2_network_diagram_v2.png)
 
 # Motivations behind decisions
 
